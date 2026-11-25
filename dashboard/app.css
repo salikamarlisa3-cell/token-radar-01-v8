@@ -1,0 +1,155 @@
+/* Launch Radar — Research Desk.
+   Warm paper, ink, one emerald accent, one amber warning. Thin rules, no
+   shadows, tabular numerals, an 8px spacing scale and one type ramp
+   (12 / 13 / 15 / 20 / 28). A desk, not a terminal. */
+
+:root {
+  --paper: #FAF7F2;
+  --card: #FFFDF8;
+  --ink: #161513;
+  --ink-soft: #57534A;
+  --rule: #E3DCD0;
+  --rule-dark: #C9C0AC;
+  --emerald: #0E7C5A;
+  --emerald-soft: #E3F0EA;
+  --amber: #B45309;
+  --amber-soft: #FAF0E2;
+  --zebra: #F3EEE3;
+  --skip: #8A8378;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: -apple-system, "Segoe UI", Inter, system-ui, sans-serif;
+  font-size: 15px;
+  line-height: 1.45;
+}
+
+.masthead { border-bottom: 2px solid var(--ink); background: var(--card); }
+.mast-inner {
+  max-width: 1240px; margin: 0 auto; padding: 24px 24px 16px;
+  display: flex; justify-content: space-between; align-items: flex-end; gap: 24px;
+}
+.kicker {
+  margin: 0 0 4px; font-size: 12px; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--emerald); font-weight: 700;
+}
+.mast-brand h1 { margin: 0; font-size: 28px; line-height: 1.15; font-weight: 700; }
+.coverage { margin: 8px 0 0; font-size: 13px; color: var(--ink-soft); }
+.coverage strong { color: var(--ink); }
+.mast-nav { display: flex; gap: 16px; padding-bottom: 4px; }
+.mast-nav a {
+  color: var(--ink); text-decoration: none; font-size: 13px; font-weight: 600;
+  border-bottom: 2px solid var(--emerald); padding-bottom: 2px;
+}
+
+.page { max-width: 1240px; margin: 0 auto; padding: 24px; }
+
+.colophon {
+  max-width: 1240px; margin: 0 auto; padding: 16px 24px 40px;
+  border-top: 1px solid var(--rule); color: var(--ink-soft); font-size: 12px;
+}
+
+/* ---------------------------------------------------------- board toolbar */
+
+.toolbar {
+  display: flex; flex-wrap: wrap; gap: 8px; align-items: center;
+  padding: 12px; background: var(--card); border: 1px solid var(--rule);
+  margin-bottom: 16px;
+}
+.toolbar label { font-size: 12px; color: var(--ink-soft); font-weight: 600; }
+.toolbar input[type="search"], .toolbar select {
+  font: inherit; font-size: 13px; color: var(--ink);
+  background: var(--paper); border: 1px solid var(--rule-dark);
+  padding: 6px 8px; border-radius: 4px;
+}
+.toolbar input[type="search"] { width: 220px; }
+.toolbar .toggle { display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--ink); }
+.result-line { font-size: 13px; color: var(--ink-soft); margin: 0 0 8px; }
+.result-line strong { color: var(--ink); }
+
+/* ---------------------------------------------------------- board table */
+
+table.board { width: 100%; border-collapse: collapse; background: var(--card); border: 1px solid var(--rule); }
+table.board th, table.board td { padding: 8px 10px; text-align: left; vertical-align: top; }
+table.board thead th {
+  position: sticky; top: 0; background: var(--card); z-index: 1;
+  font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em;
+  border-bottom: 2px solid var(--ink); cursor: pointer; white-space: nowrap;
+}
+table.board thead th .dir { color: var(--emerald); }
+table.board tbody tr { border-bottom: 1px solid var(--rule); cursor: pointer; }
+table.board tbody tr:nth-child(even) { background: var(--zebra); }
+table.board tbody tr:hover { background: var(--emerald-soft); }
+.num { text-align: right !important; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.rank { font-variant-numeric: tabular-nums; color: var(--ink-soft); }
+.pname { font-weight: 600; }
+.pname .wl { color: var(--emerald); font-size: 12px; font-weight: 700; }
+.psub { font-size: 12px; color: var(--ink-soft); }
+.pos { color: var(--emerald); }
+.neg { color: var(--amber); }
+
+.badge {
+  display: inline-block; font-size: 12px; font-weight: 700; line-height: 1;
+  padding: 4px 8px; border-radius: 999px; white-space: nowrap;
+}
+.badge.farm { background: var(--emerald); color: #FFFDF8; }
+.badge.watch { background: var(--amber-soft); color: var(--amber); border: 1px solid var(--amber); }
+.badge.skip { background: transparent; color: var(--skip); border: 1px solid var(--rule-dark); }
+
+.empty {
+  padding: 32px; text-align: center; color: var(--ink-soft);
+  background: var(--card); border: 1px solid var(--rule); font-size: 13px;
+}
+
+/* ---------------------------------------------------------- detail view */
+
+.back { font-size: 13px; color: var(--emerald); text-decoration: none; font-weight: 600; }
+.detail-head { margin: 16px 0; }
+.detail-head h2 { margin: 0; font-size: 28px; }
+.detail-head .facts-line { color: var(--ink-soft); font-size: 13px; margin-top: 4px; }
+.verdict-box {
+  border: 1px solid var(--rule); border-left: 4px solid var(--emerald);
+  background: var(--card); padding: 12px 16px; margin: 16px 0;
+}
+.verdict-box.watch { border-left-color: var(--amber); }
+.verdict-box.skip { border-left-color: var(--skip); }
+.verdict-box p { margin: 4px 0 0; font-size: 13px; }
+
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media (max-width: 860px) { .grid { grid-template-columns: 1fr; } }
+.panel { background: var(--card); border: 1px solid var(--rule); padding: 16px; }
+.panel h3 {
+  margin: 0 0 8px; font-size: 12px; text-transform: uppercase;
+  letter-spacing: 0.08em; color: var(--ink-soft);
+}
+table.walk { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+table.walk td { padding: 6px 0; border-bottom: 1px solid var(--rule); font-size: 13px; }
+table.walk td.num { font-weight: 600; }
+table.walk tr.total td { border-bottom: none; border-top: 2px solid var(--ink); font-size: 15px; }
+.walk-note { font-size: 12px; color: var(--ink-soft); }
+ol.steps { margin: 0; padding-left: 20px; }
+ol.steps li { margin-bottom: 8px; font-size: 13px; }
+dl.facts { display: grid; grid-template-columns: auto 1fr; gap: 4px 16px; margin: 0; font-size: 13px; }
+dl.facts dt { color: var(--ink-soft); }
+dl.facts dd { margin: 0; font-variant-numeric: tabular-nums; }
+
+/* ---------------------------------------------------------- methodology */
+
+.method { max-width: 820px; }
+.method h2 { font-size: 20px; margin: 24px 0 8px; }
+.method h2:first-child { margin-top: 0; }
+.method p, .method li { font-size: 13.5px; }
+.method .formula {
+  background: var(--card); border: 1px solid var(--rule); border-left: 4px solid var(--emerald);
+  padding: 12px 16px; font-size: 15px; font-weight: 600; font-variant-numeric: tabular-nums;
+}
+table.ablation { width: 100%; border-collapse: collapse; background: var(--card); border: 1px solid var(--rule); }
+table.ablation th, table.ablation td { padding: 6px 10px; font-size: 13px; text-align: left; border-bottom: 1px solid var(--rule); }
+table.ablation td.num { font-weight: 600; }
+.kept { color: var(--emerald); font-weight: 700; }
+.dropped { color: var(--amber); font-weight: 700; }

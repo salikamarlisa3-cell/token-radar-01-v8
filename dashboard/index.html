@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Launch Radar — Research Desk</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<header class="masthead">
+  <div class="mast-inner">
+    <div class="mast-brand">
+      <p class="kicker">Launch Radar · Research Desk</p>
+      <h1>Which pre-token protocol is worth farming next?</h1>
+      <p class="coverage" id="coverage">Reading the sealed snapshot…</p>
+    </div>
+    <nav class="mast-nav">
+      <a href="#/">Board</a>
+      <a href="#/methodology">Methodology</a>
+    </nav>
+  </div>
+</header>
+<main id="app" class="page"></main>
+<footer class="colophon">
+  <p>Every figure on this page is computed from the sealed snapshot at run time — no hardcoded
+  protocol names, no hardcoded prices. Two runs of the program write identical bytes.
+  A protocol here <em>records no token</em> in DefiLlama's data; that is a record, not a promise,
+  and an implied value is this desk's own claim, not a prediction that a token will be issued.</p>
+</footer>
+<script src="zz-data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

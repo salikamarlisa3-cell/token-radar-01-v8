@@ -398,6 +398,7 @@ export function familyOf(category: string | null): FarmFamily {
       return 'perps';
     case 'Yield':
     case 'Yield Aggregator':
+    case 'Risk Curators':
       return 'yield';
     default:
       return 'usage';
